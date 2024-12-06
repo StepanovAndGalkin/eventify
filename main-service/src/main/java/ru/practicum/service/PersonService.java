@@ -8,5 +8,7 @@ public interface PersonService {
 
     Person update(Person person);
 
+    Person getByEmail(String email);
+
     void delete(long id);
 }

@@ -28,6 +28,12 @@ public class PersonServiceImpl implements PersonService, RegistrationService {
     }
 
     @Override
+    public Person getByEmail(String email) {
+        return personRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
+
+
+    @Override
     public void delete(long id) {
         personRepository.deleteById(id);
     }
