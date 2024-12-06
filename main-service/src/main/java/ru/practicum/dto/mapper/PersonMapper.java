@@ -1,5 +1,6 @@
 package ru.practicum.dto.mapper;
 
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import ru.practicum.dto.PersonDto;
