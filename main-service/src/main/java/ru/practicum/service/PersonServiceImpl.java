@@ -15,6 +15,9 @@ public class PersonServiceImpl implements PersonService, RegistrationService {
 
     public void register(Person person) {
         person.setPassword(passwordEncoder.encode(person.getPassword()));
+        if (person.getRole() == null) {
+            person.setRole("ROLE_USER");
+        }
         personRepository.save(person);
     }
 

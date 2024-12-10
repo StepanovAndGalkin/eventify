@@ -33,6 +33,9 @@ public class Person {
     @Column(name = "password", nullable = false, length = 18)
     private String password;
 
+    @Column(name = "role", nullable = false, length = 254)
+    private String role;
+
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
