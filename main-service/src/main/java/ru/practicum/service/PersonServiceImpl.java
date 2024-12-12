@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.practicum.model.Person;
+import ru.practicum.model.Role;
 import ru.practicum.repository.PersonRepository;
 
 @RequiredArgsConstructor
@@ -16,7 +17,7 @@ public class PersonServiceImpl implements PersonService, RegistrationService {
     public void register(Person person) {
         person.setPassword(passwordEncoder.encode(person.getPassword()));
         if (person.getRole() == null) {
-            person.setRole("ROLE_USER");
+            person.setRole(Role.ROLE_USER);
         }
         personRepository.save(person);
     }

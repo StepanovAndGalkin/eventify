@@ -7,14 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.practicum.dto.NewEventDto;
-import ru.practicum.dto.RequestPersonDto;
 import ru.practicum.dto.mapper.EventMapper;
-import ru.practicum.dto.mapper.PersonMapper;
 import ru.practicum.model.Event;
-import ru.practicum.model.Person;
 import ru.practicum.service.EventService;
 import ru.practicum.service.PersonService;
-import ru.practicum.service.RegistrationService;
 
 import java.security.Principal;
 import java.time.LocalDateTime;
