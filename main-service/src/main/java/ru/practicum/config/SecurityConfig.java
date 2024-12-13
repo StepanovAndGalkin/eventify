@@ -52,10 +52,9 @@ public class SecurityConfig {
                     return corsConfiguration;
                 }))
                 .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
-                        .requestMatchers("/home", "/registration", "/auth/sign-up").permitAll()
+                        .requestMatchers("/home", "/registration", "/auth/sign-up", "/auth/sign-in").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users/*").hasRole("USER")
                         .requestMatchers(HttpMethod.GET, "/admin/registration").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/auth/sign-in").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
@@ -65,14 +64,13 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
-            throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(5);  // Кодировщик паролей
+        return new BCryptPasswordEncoder(5);
     }
 
 }
